@@ -11,7 +11,7 @@ PIPELINE="steps:
     label: \"Trigger deploy\"
     build:
       meta_data:
-        release-name: $RELEASE_NAME
+        release-type: $RELEASE_TYPE
   - label: ":pencil: echo release-type"
     command: echo "agent $RELEASE_TYPE"
     agents:

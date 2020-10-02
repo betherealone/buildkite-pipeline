@@ -1,0 +1,10 @@
+steps:
+  - label: ":pencil: echo agent 1"
+    command: echo "agent testing"
+    agents:
+    - "queue=testing"
+        
+  - label: ":eraser: echo agent 1"
+    command: echo "agent develop"
+    agents:
+    - "queue=develop"

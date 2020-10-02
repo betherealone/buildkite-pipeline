@@ -4,7 +4,20 @@ steps:
     agents:
       - "queue=testing"
       
-  - label: ":eraser: echo agent 1"
-    command: echo "agent develop"
+  - select: "Type"
+    key: "release-type"
+    default: "beta"
+    options:
+    - label: "Beta"
+      value: "beta"
+    - label: "Stable"
+      value: "stable"
     agents:
-      - "queue=develop"
+      - "queue=testing"
+
+  - label: ":pencil: echo release-type"
+    command: echo "agent $RELEASE_TYPE"
+    agents:
+      - "queue=testing"
+    env:
+      RELEASE_TYPE: $(buildkite-agent meta-data get release-type)

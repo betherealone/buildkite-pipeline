@@ -15,3 +15,6 @@ steps:
         value: "beta"
       - label: "Stable"
         value: "stable"
+  
+  - command: ./.buildkite/generate-pipeline.sh
+    label: ":rocket:"

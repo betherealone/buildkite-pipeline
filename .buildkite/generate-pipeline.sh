@@ -7,6 +7,11 @@ RELEASE_TYPE="$(buildkite-agent meta-data get "release-type")"
 
 # Create a pipeline with your trigger step
 PIPELINE="steps:
+  - trigger: \"deploy-pipeline\"
+    label: \"Trigger deploy\"
+    build:
+      meta_data:
+        release-name: $RELEASE_NAME
   - label: ":pencil: echo release-type"
     command: echo "agent $RELEASE_TYPE"
     agents:

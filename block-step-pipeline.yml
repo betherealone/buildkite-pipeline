@@ -19,3 +19,5 @@ steps:
           value: "stable"
   - command: release.sh
     label: ":rocket:"
+
+# Refer -- https://buildkite.com/docs/pipelines/block-step

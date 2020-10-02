@@ -30,4 +30,4 @@ echo "✅"
 
 echo "--- :pipeline: Uploading notify pipeline"
 
-./generate-notify-pipeline.sh | buildkite-agent pipeline upload 
+./.buildkite/generate-notify-pipeline.sh | buildkite-agent pipeline upload 

@@ -15,10 +15,3 @@ steps:
         value: "beta"
       - label: "Stable"
         value: "stable"
-
-  - label: ":pencil: echo release-type"
-    command: echo "agent $RELEASE_TYPE"
-    agents:
-      - "queue=testing"
-    env:
-      RELEASE_TYPE: $(buildkite-agent meta-data get release-type)

@@ -16,7 +16,7 @@ echo "---"
 
 PIPELINE="steps:
   - label: \"release-type\"
-    command: echo.sh
+    command: ls -al
     agents:
     - "queue=testing"
     env:

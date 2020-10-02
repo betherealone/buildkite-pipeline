@@ -15,8 +15,6 @@ steps:
         value: "beta"
       - label: "Stable"
         value: "stable"
-    agents:
-      - "queue=testing"
 
   - label: ":pencil: echo release-type"
     command: echo "agent $RELEASE_TYPE"

@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # Set up a variable to hold the meta-data from your block step
-RELEASE_NAME="$(buildkite-agent meta-data get "release-type")"
+RELEASE_TYPE="$(buildkite-agent meta-data get "release-type")"
 
 # Create a pipeline with your trigger step
 PIPELINE="steps:
@@ -12,6 +12,6 @@ PIPELINE="steps:
     agents:
       - "queue=testing"
     env:
-      RELEASE_TYPE: $(buildkite-agent meta-data get release-type)
+      RELEASE_TYPE: $RELEASE_TYPE
 "
 echo "$PIPELINE" | buildkite-agent pipeline upload

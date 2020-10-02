@@ -18,3 +18,5 @@ steps:
   
   - command: ./.buildkite/generate-pipeline.sh
     label: ":rocket:"
+    agents:
+      - "queue=testing"

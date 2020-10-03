@@ -3,9 +3,9 @@
 set -euo pipefail
 
 # Set up a variable to hold the meta-data from your block step
-# RELEASE_TYPE="$(buildkite-agent meta-data get "release-type")"
+RELEASE_TYPE="$(buildkite-agent meta-data get "release-type")"
 
-RELEASE_TYPE="prod"
+# RELEASE_TYPE="prod"
 
 echo "---"
 echo -e '\033[0;35m'

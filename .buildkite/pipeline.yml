@@ -1,9 +1,11 @@
+env:
+  BUILDKITE_AGENT_META_DATA_QUEUE: develop
 steps:
   # Step 1. Make a lint of the project for avoiding any linting errors.
   - label: "Project linting"
     command: echo "make lint"
     agents:
-      - "queue=testing"
+      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-testing}"
   
   # Step 2. Wait for the linting to finish, fail the build if step 1. is failed
   - wait: ~
@@ -13,7 +15,7 @@ steps:
   - command: ./.buildkite/generate-targets.sh | buildkite-agent pipeline upload 
     label: ":file_folder: Select the target directory"
     agents:
-      - "queue=testing" 
+      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-testing}"
   
 
   # Step 4. Wait for the step 3 input
@@ -24,4 +26,4 @@ steps:
   - command: ./.buildkite/generate-terraform.sh
     label: ":terraform: generating terraform steps"
     agents:
-      - "queue=testing" 
+      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-testing}"

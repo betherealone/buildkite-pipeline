@@ -13,7 +13,7 @@ steps:
       make plan
     branches: '*'
     agents:
-      - 'queue=testing'
+      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-testing}"
     env:
       ACCOUNT_PATH: $ACCOUNT_PATH
   
@@ -26,7 +26,7 @@ steps:
       make apply
     branches: '*'
     agents:
-       - 'queue=testing'
+       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-testing}"
     env:
       ACCOUNT_PATH: $ACCOUNT_PATH
 "

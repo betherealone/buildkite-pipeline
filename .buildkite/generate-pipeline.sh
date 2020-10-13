@@ -14,6 +14,7 @@ echo
 echo -e '\033[0m'
 echo "---"
 
+## By doing this we can dynamically add more steps to the build
 PIPELINE="steps:
   - label: \"release-type\"
     command: echo.sh

@@ -10,19 +10,20 @@ steps:
   - label: ':building_construction: $ACCOUNT_PATH'
     command: |
       echo 'terraform plan'
-      bash \$DIRECTORY/main.sh
+      bash $ACCOUNT_PATH/main.sh
     branches: '*'
     agents:
       - 'queue=testing'
     env:
       DIRECTORY: $ACCOUNT_PATH
   
-  - wait
+  - wait: ~
+    continue_on_failure: false
   
   - label: ':city_sunrise: $ACCOUNT_PATH'
     command: |
       echo 'terraform apply'
-      bash \$DIRECTORY/main.sh
+      bash $ACCOUNT_PATH/main.sh
     branches: '*'
     agents:
        - 'queue=testing'

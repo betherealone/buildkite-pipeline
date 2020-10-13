@@ -4,6 +4,8 @@ set -eu
 
 ACCOUNT_PATH=$(buildkite-agent meta-data get directory)
 
+AGENT_NAME=$(cat "$ACCOUNT_PATH"/name)
+
 ## By doing this we can dynamically add more steps to the build
 PIPELINE="
 steps:
@@ -13,7 +15,7 @@ steps:
       make plan
     branches: '*'
     agents:
-      - 'queue=testing'
+      - 'queue=$AGENT_NAME'
     env:
       ACCOUNT_PATH: $ACCOUNT_PATH
   
@@ -26,7 +28,7 @@ steps:
       make apply
     branches: '*'
     agents:
-       - 'queue=testing'
+       - 'queue=$AGENT_NAME'
     env:
       ACCOUNT_PATH: $ACCOUNT_PATH
 "

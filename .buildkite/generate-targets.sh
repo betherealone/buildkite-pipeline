@@ -14,7 +14,7 @@ result=("${abc[@]}" "${xyz[@]}")
 
 sorted_unique_ids="$(echo "${result[*]}" | tr ' ' '\n' | sort -u )"
 
-## Collect all oth them to a single list
+## Collect all them to a single list
 
 echo 'steps:'
 echo '  - block: "Notify"'

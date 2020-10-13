@@ -10,7 +10,7 @@ steps:
 
   # Step 3. Select the target on which terraform plan needs to be run
 
-  - command: ./.buildkite/generate-targets.sh | | buildkite-agent pipeline upload 
+  - command: ./.buildkite/generate-targets.sh | buildkite-agent pipeline upload 
     label: ":file_folder: Select the target folder"
     agents:
       - "queue=testing" 

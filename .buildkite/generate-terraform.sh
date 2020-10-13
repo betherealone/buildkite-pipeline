@@ -12,7 +12,6 @@ steps:
       echo 'terraform plan'
       bash main.sh
     branches: "*"
-    concurrency: 1
     agents:
       - 'queue=testing'
     env:
@@ -23,11 +22,12 @@ steps:
       echo 'terraform apply'
       bash main.sh
     branches: "*"
-    concurrency: 1
     agents:
        - 'queue=testing'
     env:
       ACCOUNT_PATH: $ACCOUNT_PATH
 "
+
+echo "$PIPELINE"
 
 echo "$PIPELINE" | buildkite-agent pipeline upload

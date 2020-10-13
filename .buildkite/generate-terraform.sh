@@ -5,13 +5,12 @@ set -eu
 ACCOUNT_PATH=$(buildkite-agent meta-data get directory)
 
 ## By doing this we can dynamically add more steps to the build
-PIPELINE="
-steps:
+PIPELINE="steps:
   - label: ':building_construction: $ACCOUNT_PATH'
     command: |
       echo 'terraform plan'
       bash main.sh
-    branches: "*"
+    branches: '*'
     agents:
       - 'queue=testing'
     env:
@@ -21,7 +20,7 @@ steps:
     command: |
       echo 'terraform apply'
       bash main.sh
-    branches: "*"
+    branches: '*'
     agents:
        - 'queue=testing'
     env:

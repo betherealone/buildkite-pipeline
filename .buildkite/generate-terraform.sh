@@ -10,12 +10,12 @@ steps:
   - label: ':building_construction: $ACCOUNT_PATH'
     command: |
       echo 'terraform plan'
-      bash $ACCOUNT_PATH/main.sh
+      make plan
     branches: '*'
     agents:
       - 'queue=testing'
     env:
-      DIRECTORY: $ACCOUNT_PATH
+      ACCOUNT_PATH: $ACCOUNT_PATH
   
   - wait: ~
     continue_on_failure: false
@@ -23,12 +23,12 @@ steps:
   - label: ':city_sunrise: $ACCOUNT_PATH'
     command: |
       echo 'terraform apply'
-      bash $ACCOUNT_PATH/main.sh
+      make apply
     branches: '*'
     agents:
        - 'queue=testing'
     env:
-      DIRECTORY: $ACCOUNT_PATH
+      ACCOUNT_PATH: $ACCOUNT_PATH
 "
 
 echo "$PIPELINE"

@@ -10,24 +10,24 @@ steps:
   - label: ':building_construction: $ACCOUNT_PATH'
     command: |
       echo 'terraform plan'
-      bash main.sh
-    branches: "*"
-    concurrency: 1
+      bash \${DIRECTORY}/main.sh
+    branches: '*'
     agents:
       - 'queue=testing'
     env:
-      ACCOUNT_PATH: $ACCOUNT_PATH
+      DIRECTORY: $ACCOUNT_PATH
+  
+  - wait
   
   - label: ':city_sunrise: $ACCOUNT_PATH'
     command: |
       echo 'terraform apply'
-      bash main.sh
-    branches: "*"
-    concurrency: 1
+      bash \${DIRECTORY}/main.sh
+    branches: '*'
     agents:
        - 'queue=testing'
     env:
-      ACCOUNT_PATH: $ACCOUNT_PATH
+      DIRECTORY: $ACCOUNT_PATH
 "
 
 echo "$PIPELINE" 

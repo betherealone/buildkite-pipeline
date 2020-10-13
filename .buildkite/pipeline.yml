@@ -6,7 +6,8 @@ steps:
       - "queue=testing"
   
   # Step 2. Wait for the linting to finish, fail the build if step 1. is failed
-  - wait
+  - wait: ~
+    continue_on_failure: false
 
   # Step 3. Select the target on which terraform plan needs to be run
   - command: ./.buildkite/generate-targets.sh | buildkite-agent pipeline upload 
@@ -16,7 +17,8 @@ steps:
   
 
   # Step 4. Wait for the step 3 input
-  - wait
+  - wait: ~
+    continue_on_failure: false
 
   # Step 5. Using target directory as account path, generate terraform plan and apply target
   - command: ./.buildkite/generate-terraform.sh

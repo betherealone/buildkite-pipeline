@@ -17,7 +17,8 @@ steps:
     env:
       DIRECTORY: $ACCOUNT_PATH
   
-  - wait
+  - wait: ~
+    continue_on_failure: false
   
   - label: ':city_sunrise: $ACCOUNT_PATH'
     command: |

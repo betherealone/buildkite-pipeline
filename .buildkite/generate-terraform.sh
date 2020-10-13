@@ -10,7 +10,7 @@ steps:
   - label: ':building_construction: $ACCOUNT_PATH'
     command: |
       echo 'terraform plan'
-      bash \${DIRECTORY}/main.sh
+      bash \$DIRECTORY/main.sh
     branches: '*'
     agents:
       - 'queue=testing'
@@ -22,7 +22,7 @@ steps:
   - label: ':city_sunrise: $ACCOUNT_PATH'
     command: |
       echo 'terraform apply'
-      bash \${DIRECTORY}/main.sh
+      bash \$DIRECTORY/main.sh
     branches: '*'
     agents:
        - 'queue=testing'
